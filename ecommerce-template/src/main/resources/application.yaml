@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ecommerce-backend
+
+  # ---- Lecția 2: conexiunea la PostgreSQL ----
+  # Setările de mai jos sunt ignorate până decomentați dependențele din pom.xml.
+  # Baza de date pornește cu: docker compose up
+  datasource:
+    url: jdbc:postgresql://localhost:5432/e-commerce
+    username: postgres
+    password: "2302"
+  jpa:
+    hibernate:
+      ddl-auto: none   # tabelele vin din docker/init-db, nu din cod
+    open-in-view: false
+
+  # ---- Lecția 3: Redis ----
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
